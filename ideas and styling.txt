@@ -1,0 +1,39 @@
+Home Page: Eye catching but simple interface that intrigues those who visit.
+
+My Skills/Projects: A page to showcase all of my past and current projects.
+    Requirements
+        - Left Side: A picture and a paragrah of text
+            - Picture will be relevant to page content or be an icon of some kind.
+            - Paragraph will contain a list of qualifications and additional skills and proficiencies.
+        - Right Side: A scrolling list of tiles for each project/job
+            - Each tile will expand when clicked
+            - When expanded wach tile will have a picture and a description of the project
+
+About Me: A general profile page that showcases some of my hobbies and other information about me.
+    Requirements
+        - Profile Picture
+        - 1-4 Images?
+        - 2 Paragraphs: 1 is professional, the other is more into my hobbies and personal
+
+##################################################################################################################################################
+
+Design Scheme:
+    - MUST BE MOBILE AND DESKTOP COMPATIBLE!!!!!
+
+    - Background: 
+        - Darker, cool tones. Possibly Dark green or black
+    - Text: 
+        - Font:
+        - Color: White or similar light color
+    - Stylization:
+        - Rounded Image/box corners
+    - Animations/Effects:
+        - Clickable text underline animation (Nav Bar, Menus, etc.)
+        - List Scroll Animations
+        - Page Changing animations
+
+##################################################################################################################################################
+
+Inspiration:
+https://brittanychiang.com/ 
+https://robbowen.digital/work 
