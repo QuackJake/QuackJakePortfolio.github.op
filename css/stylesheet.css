@@ -1,0 +1,323 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    background-color: #070213;
+    /* background-image: linear-gradient(to right, #000,  #080008); */
+    color: #ccc;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+body, .header, .slideshow-container, .quote-wrapper, .projects-container, .about-me-wrapper, .skills-wrapper {
+    background-color: #070213;
+}
+
+.header{
+    height: 100vh;
+    width: 100%;
+    padding: 0 8%;
+    background: #070213;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 140px;
+}
+
+.nav-links{
+    padding: 28px 0;
+}
+
+.nav-links li{
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.nav-links li a{
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav-links li a:hover{
+    color: #888888;
+    transition: 0.5s;
+}
+
+.nav-links li a::after{
+    content: '';
+    background: #058c9b;
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.5s;
+}
+
+.nav-links li a:hover::after{
+    width: 100%;
+}
+
+.slideshow-container{
+    max-width: 1080px;
+    width: 95%;
+    margin: 0px auto;
+}
+
+.slider-wrapper{
+    position: relative;
+}
+
+.slider-wrapper .slide-button{
+    position: absolute;
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    color: #000;
+    border: none;
+    outline: none;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.slider-wrapper .slide-button:hover{
+    background: #888888;
+}
+
+.slider-wrapper .slide-button#prev-slide{
+    left: -20px;
+}
+
+.slider-wrapper .slide-button#next-slide{
+    right: -20px;
+}
+
+.slider-wrapper .image-list{
+    display: grid;
+    gap: 18px;
+    font-size: 0;
+    margin-bottom: 30px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.slider-wrapper .image-list::-webkit-scrollbar{
+    display: none;
+}
+
+.slider-wrapper .image-list .image-item{
+    width: 1080px;
+    height: 720px;
+    object-fit: cover;
+}
+
+.container .slider-scrollbar{
+    height: 24px;
+    width: 100%;
+    background: red;
+    display: flex;
+    align-items: center;
+}
+
+.slider-scrollbar .scrollbar-track{
+    height: 8px;
+    width: 100%;
+    background-color: #ccc;
+    position: relative;
+    border-radius: 4px;
+}
+
+.slider-scrollbar:hover .scrollbar-track{
+    height: 4px;
+}
+
+.slider-scrollbar .scrollbar-thumb{
+    position: absolute;
+    height: 4px;
+    width: 15%;
+    background-color: #000;
+    border-radius: inherit;
+    cursor: grab;
+}
+
+.slider-scrollbar .scrollbar-thumb:active{
+    cursor: grabbing;
+    height: 8px;
+    top: -2px;
+}
+
+.slider-scrollbar .scrollbar-thumb::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10px;
+    bottom: -10px;
+
+}
+
+.quote-container{
+    display: flex;
+    justify-content: center;
+    align-items: right;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.quote-wrapper{
+    /* color: #ccc;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 20px; */
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #ccc;
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.quote{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: #ccc;
+}
+
+.new-quote-button{
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-items: right;
+}
+
+.new-quote-button:hover{
+    background-color: #888888;
+}
+
+.projects-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 80px;
+}
+
+.project{
+    width: 30%;
+    margin: 20px;
+    text-align: center;
+}
+
+.project-img{
+    max-width: 100%;
+}
+
+.project-paragraph{
+    line-height: 1.6;
+    text-align: center;
+}
+
+.project-name{
+    padding: 10px;
+}
+
+#about-me-paragraph{
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+.about-me-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items:flex-start;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.about-me {
+    /* color: #ccc; */
+    padding: 20px;
+    max-width: 600px;
+    margin-top: 30px;
+    margin: 10px 5% 10px;
+    text-align: center;
+    max-width: 30%;
+}
+
+.profile-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.contact-information-wrapper{
+    padding: 20px;
+    max-width: 600px;
+    margin-top: 30px;
+    margin: 10px 5% 10px;
+    text-align: center;
+    max-width: 30%;
+}
+
+.skills-wrapper{
+    display: flex;
+    justify-content: space-around;
+    align-items:flex-start;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    cursor: default;
+}
+
+.skills{
+    padding: 20px;
+    max-width: 600px;
+    margin-top: 30px;
+    margin: 10px 5% 10px;
+    text-align: center;
+    max-width: 30%;
+}
+
+.skills-list{
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+.skills-header{
+    margin: 20px auto;
+}
+
+.skills-list dd:hover{
+    color: #888888;
+    transition: 0.5s;
+    
+}
