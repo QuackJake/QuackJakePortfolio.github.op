@@ -1,67 +1,67 @@
-*{
+/* Global Styles */
+* {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     box-sizing: border-box;
-    background-color: #070213;
-    /* background-image: linear-gradient(to right, #000,  #080008); */
     color: #ccc;
 }
 
+/* Body Styles */
 body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    background-image: url("../images/dark-leaf-background.jpg");
+    background-size: cover;
+    background-position: center;
 }
 
-body, .header, .slideshow-container, .quote-wrapper, .projects-container, .about-me-wrapper, .skills-wrapper {
-    background-color: #070213;
-}
-
-.header{
-    height: 100vh;
+/* Header Styles */
+.header {
+    text-align: center;
+    padding: 10px 0;
     width: 100%;
-    padding: 0 8%;
-    background: #070213;
-    position: relative;
-    display: flex;
-    flex-direction: column;
+    backdrop-filter: blur(10px);
 }
 
-nav{
+/* Navbar Styles */
+nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.logo{
+.logo {
     width: 140px;
 }
 
-.nav-links{
+.nav-links {
     padding: 28px 0;
 }
 
-.nav-links li{
+.nav-links li {
     display: inline-block;
     margin: 0 15px;
 }
 
-.nav-links li a{
+.nav-links li a {
     text-decoration: none;
     color: #fff;
     padding: 5px 0;
     position: relative;
+    transition: color 0.5s;
 }
 
-.nav-links li a:hover{
+.nav-links li a:hover {
     color: #888888;
-    transition: 0.5s;
 }
 
-.nav-links li a::after{
+.nav-links li a::after {
     content: '';
     background: #058c9b;
     width: 0%;
@@ -72,58 +72,38 @@ nav{
     transition: width 0.5s;
 }
 
-.nav-links li a:hover::after{
+.nav-links li a:hover::after {
     width: 100%;
 }
 
-.projects-container{
+
+/* Content Wrapper Styles */
+.content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    min-width: 100vh;
+    padding: 20px;
+}
+
+/* About Me Styles */
+.about-me-wrapper,
+.skills-wrapper {
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
     flex-wrap: wrap;
-    margin-top: 80px;
-}
-
-.project{
-    width: 30%;
-    margin: 20px;
-    text-align: center;
-}
-
-.project-img{
-    max-width: 100%;
-}
-
-.project-paragraph{
-    line-height: 1.6;
-    text-align: center;
-}
-
-.project-name{
-    padding: 10px;
-}
-
-#about-me-paragraph{
-    line-height: 1.6;
-    margin-top: 10px;
-}
-
-.about-me-wrapper {
-    display: flex;
-    justify-content: space-around;
-    align-items:flex-start;
-    flex-wrap: wrap;
     margin-top: 30px;
 }
 
-.about-me {
-    /* color: #ccc; */
+.about-me,
+.contact-information-wrapper,
+.skills {
     padding: 20px;
-    max-width: 600px;
-    margin-top: 30px;
-    margin: 10px 5% 10px;
-    text-align: center;
     max-width: 30%;
+    margin: 10px 5%;
+    text-align: center;
 }
 
 .profile-image {
@@ -133,44 +113,55 @@ nav{
     margin-bottom: 20px;
 }
 
-.contact-information-wrapper{
-    padding: 20px;
-    max-width: 600px;
-    margin-top: 30px;
-    margin: 10px 5% 10px;
-    text-align: center;
-    max-width: 30%;
-}
-
-.skills-wrapper{
-    display: flex;
-    justify-content: space-around;
-    align-items:flex-start;
-    flex-wrap: wrap;
-    margin-top: 30px;
-    cursor: default;
-}
-
-.skills{
-    padding: 20px;
-    max-width: 600px;
-    margin-top: 30px;
-    margin: 10px 5% 10px;
-    text-align: center;
-    max-width: 30%;
-}
-
-.skills-list{
+/* Skills Styles */
+.skills-list {
     line-height: 1.6;
     margin-top: 10px;
 }
 
-.skills-header{
+.skills-header {
     margin: 20px auto;
 }
 
-.skills-list dd:hover{
+.skills-list dd:hover {
     color: #888888;
-    transition: 0.5s;
-    
+    transition: color 0.5s;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+}
+
+.social-links li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.social-links li a {
+    text-decoration: none;
+    font-size: 32px;
+    transition: opacity, 0.3s;
+}
+
+.social-links li a:hover {
+    opacity: 50%;
+}
+
+/* Mouse Glow Effects */
+.glow {
+    position: fixed;
+    pointer-events: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    width: 100px;
+    height: 100px;
+    mix-blend-mode: screen;
+    transition: transform 0.1s ease;
+    z-index: -1;
 }
