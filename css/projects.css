@@ -1,19 +1,19 @@
-/* Column Styles */
 .column {
     border: 2px solid #ccc;
-    flex: 1 1 50%; /* Allow columns to grow and shrink, with a base width of 30% */
+    flex: 1 1 50%;
     padding: 20px;
     min-width: 20%;
+    margin: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 10px; /* Add margin between columns */
-    box-sizing: border-box; /* Include padding and border in the width calculation */
+    box-sizing: border-box;
 }
 
-.static-content, .scrollable-tiles {
+.static-content,
+.scrollable-tiles {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100vh; /* Full width of its container */
-    max-width: 30%; /* Allow full width, without restrictions */
+    width: 100vh;
+    max-width: 30%;
     height: 100vh;
 }
 
@@ -22,20 +22,17 @@
     min-width: 55%;
 }
 
-
-
-/* Tile Styles */
 .tile {
     border: 2px solid #ccc;
-    min-height: 200px;
     margin-bottom: 10px;
-    padding: 20px;
+    min-height: fit-content;
+    padding: 30px 20px 30px 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    overflow: hidden; /* Prevents content from overflowing */
-    transition: transform 0.5s ease; /* Smooth transition for scale */
-    position: relative; /* For positioning the details */
+    overflow: hidden;
+    transition: max-height 0.7s ease, opacity 0.6s ease;
+    position: relative;
 }
 
 .tile-header h {
@@ -43,123 +40,68 @@
 }
 
 .tile-header p {
-    font-size: 1.0em;
-    overflow: visible;
+    font-size: 1em;
 }
 
 .tile-content {
     display: flex;
-    max-height: 0; /* Collapse content */
-    opacity: 0; /* Hide content */
-    overflow: hidden; /* Prevent content overflow */
-    transition: max-height 0.5s ease, opacity 0.5s ease;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    transform: translateY(20px);
+    min-height: fit-content;
+    overflow: hidden;
+    transition: max-height 0.6s ease, opacity 0.6s ease, transform 0.6s ease;
+}
+
+.tile-content-section {
+    flex: 1;
+    max-width: 45%;
+    margin: 0 10px;
+    transition: opacity 0.6s;
+}
+
+
+
+.animated-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+    opacity: 1;
+    overflow: hidden; /* Ensure no overflow from animation */
+}
+
+.animated-list li {
+    position: relative;
+    margin: 10px;
+    padding-left: 30px;
+    opacity: 0;
     transform: translateX(-20px);
+    animation: quickFadeIn 0.1s forwards;
+    /* Adjust delay for sequential effect */
+    animation-delay: var(--animation-delay, 0s);
 }
 
-.tile-content p {
-    font-size: 1em;
-    line-height: 1.8;
-    color: #fff;
-    margin: 0; /* Remove default margins */
-    padding: 0;
-    display: inline-block;
-}
-
-.tile img {
-    float: left; /* Align image to the left */
-    margin-right: 20px; /* Space between image and text */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 30%; /* Adjust width as needed */
-    height: auto;
-}
-
-.tile.expanded ul {
-    opacity: 1; /* Show the list */
-    transform: translateX(0); /* Slide in from the left */
-}
-
-.tile-content ul li::before {
-    content: "-"; /* Change bullet to dash */
-    display: inline-block;
-    margin-right: 8px; /* Space between dash and text */
-    color: #333; /* Bullet color */
-}
-
-.tile-content ul li {
-    margin: 10px 0; /* Space between list items */
-    padding-left: 10px;
-}
-
-/* For hover-triggered expansion */
-.tile:hover ul {
+.animated-list li.visible {
     opacity: 1;
     transform: translateX(0);
 }
 
-/* Expanded state of the tile */
-.tile.expanded .tile-content {
-    max-height: 1000px; /* Adjust as needed */
-    opacity: 1;
+.animated-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    width: 3ch;
+    color: #fff;
+    font-size: 1em;
 }
 
-/* Animated List */
-.animated-list {
-    list-style-type: disc;
-    padding-left: 20px;
-    margin: 0;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.animated-list li {
-    margin-bottom: 5px;
-    animation: fadeInUp 0.5s ease-in-out forwards;
-    animation-delay: calc(0.1s * var(--i)); /* Delay each item */
-    opacity: 0;
-}
-
-
-
-/* Responsive Styles */
-@media (max-width: 1000px) {
-    .content {
-        flex-direction: column;
-        align-items: center;
-    }
-
-
-    .static-content,
-    .scrollable-tiles {
-        width: 100%;
-        max-width: none; /* Remove the max-width restriction */
-        margin: 0; /* Remove margin to reduce extra space */
-        padding: 10px; /* Optionally adjust padding if needed */
-    }
-    
-    .column {
-        flex: 1 1 100%;
-        margin: 5px; /* Reduce margin to fit content better */
-    }
-}
-
-/* Animation keyframes */
-@keyframes fadeInUp {
+@keyframes quickFadeIn {
     from {
-        transform: translateY(20px);
         opacity: 0;
+        transform: translateX(-20px);
     }
     to {
-        transform: translateY(0);
         opacity: 1;
+        transform: translateX(0);
     }
-}
-
-/* Expanded state of the list */
-.tile.expanded .animated-list {
-    opacity: 1;
-}
-
-.tile.expanded .animated-list li {
-    opacity: 1;
 }

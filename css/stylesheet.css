@@ -3,23 +3,24 @@
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    font-size: 24;
+    letter-spacing: .15rem;
     box-sizing: border-box;
     color: #ccc;
 }
 
+
+
 /* Body Styles */
 body {
     min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url("../images/dark-leaf-background.jpg");
-    background-size: cover;
-    background-position: center;
+    background: url("../images/dark-leaf-background.jpg") center/cover no-repeat;
 }
+
+
 
 /* Header Styles */
 .header {
@@ -28,6 +29,8 @@ body {
     width: 100%;
     backdrop-filter: blur(10px);
 }
+
+
 
 /* Navbar Styles */
 nav {
@@ -42,14 +45,14 @@ nav {
 
 .nav-links {
     padding: 28px 0;
+    display: flex;
 }
 
 .nav-links li {
-    display: inline-block;
     margin: 0 15px;
 }
 
-.nav-links li a {
+.nav-links a {
     text-decoration: none;
     color: #fff;
     padding: 5px 0;
@@ -57,24 +60,10 @@ nav {
     transition: color 0.5s;
 }
 
-.nav-links li a:hover {
-    color: #888888;
+.nav-links a:hover {
+    color: #888;
 }
 
-.nav-links li a::after {
-    content: '';
-    background: #058c9b;
-    width: 0%;
-    height: 2px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transition: width 0.5s;
-}
-
-.nav-links li a:hover::after {
-    width: 100%;
-}
 
 
 /* Content Wrapper Styles */
@@ -83,16 +72,16 @@ nav {
     justify-content: center;
     flex-wrap: wrap;
     min-height: 100vh;
-    min-width: 100vh;
     padding: 20px;
 }
+
+
 
 /* About Me Styles */
 .about-me-wrapper,
 .skills-wrapper {
     display: flex;
     justify-content: space-around;
-    align-items: flex-start;
     flex-wrap: wrap;
     margin-top: 30px;
 }
@@ -113,6 +102,8 @@ nav {
     margin-bottom: 20px;
 }
 
+
+
 /* Skills Styles */
 .skills-list {
     line-height: 1.6;
@@ -124,33 +115,34 @@ nav {
 }
 
 .skills-list dd:hover {
-    color: #888888;
+    color: #888;
     transition: color 0.5s;
 }
+
+
 
 /* Social Links */
 .social-links {
     display: flex;
     align-items: center;
     list-style-type: none;
-    padding: 0;
-    display: flex;
 }
 
 .social-links li {
-    display: inline-block;
     margin: 0 10px;
 }
 
-.social-links li a {
+.social-links a {
     text-decoration: none;
     font-size: 32px;
-    transition: opacity, 0.3s;
+    transition: opacity 0.3s;
 }
 
-.social-links li a:hover {
-    opacity: 50%;
+.social-links a:hover {
+    opacity: 0.5;
 }
+
+
 
 /* Mouse Glow Effects */
 .glow {
@@ -164,4 +156,36 @@ nav {
     mix-blend-mode: screen;
     transition: transform 0.1s ease;
     z-index: -1;
+}
+
+
+
+
+
+/* Underline Effect Class */
+.underline-effect {
+    position: relative;
+    color: #fff;
+    padding: 5px 0;
+    text-decoration: none;
+    transition: color 0.5s;
+}
+
+.underline-effect::after {
+    content: '';
+    background: #058c9b; /* Blue color for underline */
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    transition: width 0.5s;
+}
+
+.underline-effect:hover {
+    color: #888;
+}
+
+.underline-effect:hover::after {
+    width: 100%;
 }
